@@ -4,10 +4,10 @@ const router = express.Router()
 const queries = require("../db/queries")
 
 router.get('/', (req,res,next) => {
-    queries.list('attendees')
-    .then(attendees => {
-        res.json({attendees})
-    })
+  queries.list('attendees')
+  .then(attendees => {
+    res.json({attendees})
+  })
 })
 
 router.use(function(error,request,response,next){
