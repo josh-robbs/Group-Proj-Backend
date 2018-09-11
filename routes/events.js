@@ -11,7 +11,7 @@ router.get('/', (req,res,next) => {
 })
 
 router.get('/:id', function(request,response){
-  queries.read("events", request.params.id).then(event => {
+  queries.eventById(request.params.id).then(event => {
       event
           ? response.json({event})
           : response.status(404).json({message: 'Not found'})

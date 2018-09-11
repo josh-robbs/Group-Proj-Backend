@@ -7,6 +7,12 @@ module.exports = {
     read(tableName, id) {
       return database(tableName).select().where('id', id)
     },
+    eventById(id){
+      return database('events')
+      .select('events.name', 'events.lat', 'events.long', 'events.description', 'events.start_at', 'events.end_at', 'events.date', 'events.image_url', 'neighbors.firstname', 'neighbors.lastname', 'neighbors.image')
+      .where('events.id', id)
+      .fullOuterJoin('neighbors','neighbors.id','events.organizer')
+    },
     post(tableName, newEvent) {
       return database(tableName)
         .insert(newEvent)

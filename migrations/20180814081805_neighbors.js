@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('neighbors', neighbors => {
-    neighbors.increments()
+    neighbors.increments('id')
     neighbors.string('username')
     neighbors.string('password')
     neighbors.string('firstname')
